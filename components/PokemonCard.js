@@ -1,8 +1,11 @@
-import {ScrollView,View, Text, StyleSheet, Platform, Image} from 'react-native';
+import {View, Text, StyleSheet, Platform, Image} from 'react-native';
 //2:styling card
 //3:card component content
 //4: style the component-> //4.1also create function that return badge styles based on pokemon type0
                            //4.2 display list of moves and weakness
+
+//5: render multiple pokemon cards
+
 //4
 function getTypeDetails(type){
     switch(type.toLowerCase()){
@@ -25,7 +28,7 @@ export default function PokemonCard({name,image,type,hp,moves,weaknesses}){
     //4.2 invoke function in component
     const {borderColor, emoji} = getTypeDetails(type);
     return(
-        <ScrollView>
+       
         <View style={styles.card}>
             <View style={styles.nameContainer}>
                 <Text style={styles.name}>{name}</Text>
@@ -52,7 +55,7 @@ export default function PokemonCard({name,image,type,hp,moves,weaknesses}){
                 <Text style={styles.weaknessText}>Weakness: {weaknesses.join(', ')}</Text>
             </View>
         </View>
-        </ScrollView>
+        
     )
 }
 

@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Platform } from 'react-native';
+import { StyleSheet, Text, View, Platform, ScrollView } from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context'
 import PokemonCard from './components/PokemonCard';
+
 export default function App() {
   //define properties of pokemon that needs to be rendered
     const charmanderData= {
@@ -13,16 +14,43 @@ export default function App() {
         weaknesses:["Water", "Rock"]
     };
 
-    
+    const squirtleData = {
+    name: "Squirtle",
+    image: require("./assets/squirtle.png"), 
+    type: "Water",
+    hp: 44,
+    moves: ["Tackle", "Water Gun", "Tail Whip", "Withdraw"],
+    weaknesses: ["Electric", "Grass"],
+  };
+
+  const bulbasaurData = {
+    name: "Bulbasaur",
+    image: require("./assets/bulbasaur.png"), 
+    type: "Grass",
+    hp: 45,
+    moves: ["Tackle", "Vine Whip", "Growl", "Leech Seed"],
+    weaknesses: ["Fire", "Ice", "Flying", "Psychic"],
+  };
+
+  const pikachuData = {
+    name: "Pikachu",
+    image: require("./assets/pikachu.png"), 
+    type: "Electric",
+    hp: 35,
+    moves: ["Quick Attack", "Thunderbolt", "Tail Whip", "Growl"],
+    weaknesses: ["Ground"],
+  };
 
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
+        <ScrollView>
         {/* 3.2 add this properties  as prop to pokemon component using spread operator */}
         <PokemonCard {...charmanderData}/>
-        {/* <PokemonCard {...squirtleData} />
+        <PokemonCard {...squirtleData} />
         <PokemonCard {...bulbasaurData} />
-        <PokemonCard {...pikachuData} /> */}
+        <PokemonCard {...pikachuData} />
+        </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
   );
