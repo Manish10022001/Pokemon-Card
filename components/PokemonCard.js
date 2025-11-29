@@ -1,10 +1,27 @@
-import {View, Text, StyleSheet, Platform} from 'react-native';
-
-export default function PokemonCard(){
+import {ScrollView,View, Text, StyleSheet, Platform, Image} from 'react-native';
+//2:styling card
+//3:card component content
+export default function PokemonCard({name,image,type,hp,moves,weaknesses}){
+    //3.3 destructure the properties from component prop
     return(
+        <ScrollView>
         <View style={styles.card}>
-            <Text>Pokemon Card</Text>
+            <View>
+                <Text>{name}</Text>
+                <Text>{hp}</Text>
+            </View>
+            <Image source={image} accessibilityLabel={`${name} pokemon`}/>
+
+            <View>
+                <Text>{type}</Text>
+            </View>
+
+            <View>
+                <Text>Moves: {moves.join(', ')}</Text>
+                <Text>Weakness: {weaknesses?.join(', ')}</Text>
+            </View>
         </View>
+        </ScrollView>
     )
 }
 
